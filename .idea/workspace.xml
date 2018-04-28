@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f2bd7db-577c-4430-9ec6-c93f0a14de32" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.elasticbeanstalk/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.elasticbeanstalk/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Andromeda/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/Andromeda/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.elasticbeanstalk/app_versions/app-7a7a-180428_150859.zip" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -134,11 +133,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="01_packages.config" pinned="false" current-in-tab="false">
+      <file leaf-file-name="01_packages.config" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.ebextensions/01_packages.config">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+            <state relative-caret-position="68">
+              <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -164,7 +163,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/registration_system/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="235">
@@ -270,12 +269,12 @@
         <option value="$PROJECT_DIR$/assets/js/table.js" />
         <option value="$PROJECT_DIR$/registration_system/urls.py" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/.ebextensions/01_packages.config" />
         <option value="$PROJECT_DIR$/.ebextensions/02_packages.config" />
         <option value="$PROJECT_DIR$/Andromeda/settings.py" />
         <option value="$PROJECT_DIR$/Andromeda/wsgi.py" />
         <option value="$PROJECT_DIR$/registration_system/views.py" />
         <option value="$PROJECT_DIR$/.elasticbeanstalk/config.yml" />
+        <option value="$PROJECT_DIR$/.ebextensions/01_packages.config" />
       </list>
     </option>
   </component>
@@ -926,13 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.ebextensions/01_packages.config">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.ebextensions/02_packages.config">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -951,6 +943,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
           <caret line="47" column="11" lean-forward="true" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.ebextensions/01_packages.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
         </state>
       </provider>
     </entry>
