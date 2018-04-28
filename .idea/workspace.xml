@@ -187,7 +187,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>minor</find>
       <find>TITLE-RULE</find>
       <find>strp</find>
       <find>ViewGraphs</find>
@@ -198,7 +197,7 @@
       <find>console.log</find>
       <find>ViewFacult</find>
       <find>open_Gradin</find>
-      <find />
+      <find>self.faculty_id, sel</find>
       <find>print</find>
       <find>RegisterCourse</find>
       <find>success</find>
@@ -217,6 +216,7 @@
       <find>Section</find>
       <find>course</find>
       <find>building</find>
+      <find>module</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
