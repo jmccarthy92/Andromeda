@@ -128,4 +128,8 @@ chrome-user-data
 .vscode
 *.swp
 *.swo
-assets/bundles/
+assets/bundles/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
