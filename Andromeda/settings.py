@@ -45,7 +45,7 @@ SECRET_KEY = 'smqf4q1583p0m*y+__i$7d#x7^if&ti5n*9orkzv=oe#))1@kp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['4f0954a8.ngrok.io', 'localhost', '61b618ae.ngrok.io', '5b3670c7.ngrok.io']
+ALLOWED_HOSTS = ['andromeda-dev.us-east-2.elasticbeanstalk.com', '4f0954a8.ngrok.io', 'localhost', '61b618ae.ngrok.io', '5b3670c7.ngrok.io']
 
 
 # Application definition
