@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f2bd7db-577c-4430-9ec6-c93f0a14de32" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.elasticbeanstalk/app_versions/app-8ad3-180429_125254.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Andromeda/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Andromeda/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -104,8 +102,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Andromeda/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="105" column="52" selection-start-line="105" selection-start-column="52" selection-end-line="105" selection-end-column="52" />
+            <state relative-caret-position="197">
+              <caret line="108" column="51" selection-start-line="108" selection-start-column="51" selection-end-line="108" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -187,7 +185,7 @@
       <find>console.log</find>
       <find>ViewFacult</find>
       <find>open_Gradin</find>
-      <find />
+      <find>self.faculty_id, sel</find>
       <find>print</find>
       <find>RegisterCourse</find>
       <find>success</find>
@@ -931,8 +929,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Andromeda/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="105" column="52" selection-start-line="105" selection-start-column="52" selection-end-line="105" selection-end-column="52" />
+        <state relative-caret-position="197">
+          <caret line="108" column="51" selection-start-line="108" selection-start-column="51" selection-end-line="108" selection-end-column="51" />
         </state>
       </provider>
     </entry>
