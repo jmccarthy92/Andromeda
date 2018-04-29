@@ -33,7 +33,7 @@ WEBPACK_LOADER = {
 
 REACT = {
     'RENDER': True,
-    'RENDER_URL': 'http://5df8b095.ngrok.io/render',
+    'RENDER_URL': 'http://127.0.0.1:8001/render',
 }
 
 # Quick-start development settings - unsuitable for production
