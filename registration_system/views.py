@@ -569,7 +569,7 @@ class ViewFacultySchedule(LoginRequiredMixin, generic.View):
 
 
 class ViewStudentSchedule(LoginRequiredMixin, generic.View):
-    template_name = 'registration_system/view_Student_Schedule.html'
+    template_name = 'registration_system/view_student_schedule.html'
     is_faculty = False
     is_admin = False
 
@@ -749,9 +749,14 @@ class ViewStudentTranscriptResult(LoginRequiredMixin, generic.View):
         grades = 0.0
         counter = 0
         # print(enrollments)
-        student_major_rec = StudentMajor.objects.get(student_id=student)
-        student_major = student_major_rec.major_id.name
-        student_major_dep = student_major_rec.major_id.department_id.name
+        try:
+            student_major_rec = StudentMajor.objects.get(student_id=student)
+            student_major = student_major_rec.major_id.name
+            student_major_dep = student_major_rec.major_id.department_id.name
+        except StudentMajor.DoesNotExist:
+            student_major = 'None Declared'
+            student_major_dep = 'N/A'
+
         adviser_array = []
         for a in Advising.objects.filter(student_id=student):
             adviser_array.append({
@@ -2719,6 +2724,8 @@ def get_master_schedule_search_data_v2(request):
     #         pass
     if department_id:
         section = Section.objects.filter(course_id__department_id_id=int(department_id))
+        if department_id and faculty_id:
+            section = Section.objects.filter(course_id__department_id_id=int(department_id), faculty_id_id=int(faculty_id))
         if department_id and building_id:
             print(building_id)
             print(department_id)
