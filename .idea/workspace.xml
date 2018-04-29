@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f2bd7db-577c-4430-9ec6-c93f0a14de32" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Andromeda/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Andromeda/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.elasticbeanstalk/app_versions/app-407f-180429_131220.zip" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -99,7 +99,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Andromeda/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="197">
@@ -108,11 +108,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Andromeda/wsgi.py">
+      <file leaf-file-name="manage.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/manage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="272">
+              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+              <folding>
+                <element signature="e#22#31#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,7 +148,7 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="02_packages.config" pinned="false" current-in-tab="false">
+      <file leaf-file-name="02_packages.config" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.ebextensions/02_packages.config">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
@@ -215,7 +218,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/registration_system/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/registration_system/management/commands/loadseeddata.py" />
         <option value="$PROJECT_DIR$/registration_system/templates/registration_system/master_schedule.html" />
         <option value="$PROJECT_DIR$/registration_system/forms.py" />
@@ -266,6 +268,7 @@
         <option value="$PROJECT_DIR$/.ebextensions/01_packages.config" />
         <option value="$PROJECT_DIR$/.ebextensions/02_packages.config" />
         <option value="$PROJECT_DIR$/Andromeda/settings.py" />
+        <option value="$PROJECT_DIR$/manage.py" />
       </list>
     </option>
   </component>
@@ -503,8 +506,8 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32826087" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.41847825" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.7515625" visible="true" weight="0.36797065" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23139158" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.7515625" visible="true" weight="0.36797065" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23139158" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32942432" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -567,17 +570,17 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/manage.py</url>
+          <line>1</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/registration_system/management/commands/addmajorsandminors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="73" column="97" lean-forward="true" selection-start-line="73" selection-start-column="97" selection-end-line="73" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/registration_system/static/registration_system/js/intro-page.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -845,13 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Andromeda/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -913,6 +909,30 @@
     <entry file="file://$PROJECT_DIR$/render_server.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding>
+            <element signature="e#22#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Andromeda/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="108" column="51" selection-start-line="108" selection-start-column="51" selection-end-line="108" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.ebextensions/01_packages.config">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -924,13 +944,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="99" selection-start-line="5" selection-start-column="99" selection-end-line="5" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Andromeda/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="108" column="51" selection-start-line="108" selection-start-column="51" selection-end-line="108" selection-end-column="51" />
         </state>
       </provider>
     </entry>
