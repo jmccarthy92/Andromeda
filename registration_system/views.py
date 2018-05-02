@@ -206,23 +206,33 @@ class ViewGraphs(LoginRequiredMixin, generic.View):
             elif e.grade == 'F':
                 grades_tally[8] = grades_tally[8] + 1
 
-        meeting_dates = {}
-        for m in Meetings.objects.values('meeting_date').distinct():
-            # print(m)
-            meeting_dates[m['meeting_date'].strftime("%Y-%m-%d")] = {
-                'date': m['meeting_date'].strftime("%Y-%m-%d"),
+        course_name = {}
+        for c in Course.objects.all():
+            course_name[c.name] = {
                 'tally': 0
             }
-        for m in Meetings.objects.all():
-            if m.meeting_date.strftime("%Y-%m-%d") == meeting_dates[m.meeting_date.strftime("%Y-%m-%d")]['date']:
-                meeting_dates[m.meeting_date.strftime("%Y-%m-%d")]['tally'] = meeting_dates[m.meeting_date.strftime("%Y-%m-%d")]['tally'] + 1
-        print(meeting_dates)
+
+        for s in Section.objects.all():
+            course_name[s.course_id.name]['tally'] = course_name[s.course_id.name]['tally'] + s.seats_taken
+        # meeting_dates = {}
+        # for m in Meetings.objects.values('meeting_date').distinct():
+        #     # print(m)
+        #     meeting_dates[m['meeting_date'].strftime("%Y-%m-%d")] = {
+        #         'date': m['meeting_date'].strftime("%Y-%m-%d"),
+        #         'tally': 0
+        #     }
+        # for m in Meetings.objects.all():
+        #     if m.meeting_date.strftime("%Y-%m-%d") == meeting_dates[m.meeting_date.strftime("%Y-%m-%d")]['date']:
+        #         meeting_dates[m.meeting_date.strftime("%Y-%m-%d")]['tally'] = meeting_dates[m.meeting_date.strftime("%Y-%m-%d")]['tally'] + 1
+        # print(meeting_dates)
         meeting_date_x_axis = []
         meeting_date_y_axis = []
-        for key, value in meeting_dates.items():
-            meeting_date_x_axis.append(value['date'])
+        # for key, value in meeting_dates.items():
+        #     meeting_date_x_axis.append(value['date'])
+        #     meeting_date_y_axis.append(value['tally'])
+        for key, value in course_name.items():
+            meeting_date_x_axis.append(key)
             meeting_date_y_axis.append(value['tally'])
-
         context = {
             'rendered': rendered,
             'x_axis': grades,
@@ -1127,6 +1137,8 @@ class DropCourse(LoginRequiredMixin, generic.View):
             section = Section.objects.get(pk=int(section_id))
             enrollment = Enrollment.objects.get(student_id=student, section_id=section)
             enrollment.delete()
+            section.seats_taken = section.seats_taken - 1
+            section.save()
             data['is_successful'] = True
         else:
             data['is_successful'] = False
@@ -1296,6 +1308,8 @@ class RegisterCourse(LoginRequiredMixin, generic.View):
                 enrollment = Enrollment.objects.create(student_id=student, section_id=section)
                 # meeting = Meetings.objects.create(enrollment_id=enrollment, student_id=student)
                 student_history = StudentHistory.objects.create(student_id=student, enrollment_id=enrollment)
+                section.seats_taken = section.seats_taken + 1
+                section.save()
                 data['is_successful'] = True
         else:
             data['is_successful'] = False
@@ -2468,7 +2482,7 @@ def get_csv_report(request):
             cumulative_gpa = 0.0
         else:
             cumulative_gpa = float(grades / counter)
-        writer.writerow([s.student_id.user.first_name + ' ' + s.student_id.user.last_name, cumulative_gpa])
+        writer.writerow(['Student_' + s.student_id_id, cumulative_gpa])
 
     return response
 
@@ -2477,25 +2491,21 @@ def get_attendance_csv_report(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="somefilename.csv"'
     writer = csv.writer(response)
-    writer.writerow(['Date ', 'Class', 'Tally'])
+    writer.writerow(['Class', 'Tally'])
 
-    meeting_dates = {}
-    for m in Meetings.objects.values('meeting_date').distinct():
-        # print(m)
-        meeting_dates[m['meeting_date'].strftime("%Y-%m-%d")] = {
-            'date': m['meeting_date'].strftime("%Y-%m-%d"),
-            'tally': 0,
-            'class': None
+    course_name = {}
+    for c in Course.objects.all():
+        course_name[c.name] = {
+            'tally': 0
         }
-    for m in Meetings.objects.all():
-        if m.meeting_date.strftime("%Y-%m-%d") == meeting_dates[m.meeting_date.strftime("%Y-%m-%d")]['date']:
-            meeting_dates[m.meeting_date.strftime("%Y-%m-%d")]['tally'] = meeting_dates[m.meeting_date.strftime("%Y-%m-%d")]['tally'] + 1
-            meeting_dates[m.meeting_date.strftime("%Y-%m-%d")]['class'] = m.enrollment_id.section_id.course_id.name
 
+    for s in Section.objects.all():
+        course_name[s.course_id.name]['tally'] = course_name[s.course_id.name]['tally'] + s.seats_taken
     # print(meeting_dates)
 
-    for key, value in meeting_dates.items():
-        writer.writerow([value['date'], value['class'], value['tally']])
+    for key, value in course_name.items():
+        writer.writerow([key, value['tally']])
+
     return response
 
 

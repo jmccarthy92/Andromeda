@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f2bd7db-577c-4430-9ec6-c93f0a14de32" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration_system/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration_system/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration_system/templates/registration_system/change_semester.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration_system/templates/registration_system/change_semester.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration_system/templates/registration_system/register_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration_system/templates/registration_system/register_course.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration_system/templates/registration_system/update_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration_system/templates/registration_system/update_course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration_system/templates/registration_system/view_graphs.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration_system/templates/registration_system/view_graphs.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/registration_system/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration_system/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -76,8 +72,8 @@
             <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/assets/js/app.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="3978">
-                    <caret line="261" column="34" lean-forward="true" selection-start-line="261" selection-start-column="34" selection-end-line="261" selection-end-column="34" />
+                  <state relative-caret-position="289">
+                    <caret line="275" column="32" selection-start-line="275" selection-start-column="32" selection-end-line="275" selection-end-column="32" />
                     <folding>
                       <element signature="e#0#26#0" expanded="true" />
                     </folding>
@@ -92,11 +88,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/registration_system/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="1079" column="89" lean-forward="true" selection-start-line="1079" selection-start-column="89" selection-end-line="1079" selection-end-column="89" />
+            <state relative-caret-position="514">
+              <caret line="2484" column="53" selection-start-line="2484" selection-start-column="53" selection-end-line="2484" selection-end-column="53" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -118,6 +114,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
               <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_graphs.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/registration_system/templates/registration_system/view_graphs.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="25" column="47" lean-forward="true" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+              <folding>
+                <element signature="e#574#631#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -161,32 +169,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="row.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="row.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/row.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+            <state relative-caret-position="-326">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/index.js">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="01_packages.config" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.ebextensions/01_packages.config">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-            </state>
+            <state relative-caret-position="-306" />
           </provider>
         </entry>
       </file>
@@ -204,7 +199,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>view_Student</find>
       <find>viewStudentTranscript</find>
       <find>ViewHold</find>
       <find>Hold</find>
@@ -219,7 +213,6 @@
       <find>StudentView</find>
       <find>ViewStudentT</find>
       <find>StudentViewStudent</find>
-      <find>DropCourse</find>
       <find>ViewGraphs</find>
       <find>csv</find>
       <find>start_time</find>
@@ -229,11 +222,13 @@
       <find>REGISTERcOURSE</find>
       <find>Section</find>
       <find>try</find>
-      <find />
+      <find>grade</find>
       <find>delete()</find>
       <find>Advising</find>
-      <find>RegisterCourse</find>
       <find>DropCour</find>
+      <find>Graph</find>
+      <find>RegisterCourse</find>
+      <find>DropCourse</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -266,7 +261,6 @@
         <option value="$PROJECT_DIR$/registration_system/templates/registration_system/declare_major.html" />
         <option value="$PROJECT_DIR$/registration_system/templates/registration_system/declare_minor.html" />
         <option value="$PROJECT_DIR$/registration_system/templates/registration_system/search_course.html" />
-        <option value="$PROJECT_DIR$/registration_system/templates/registration_system/view_graphs.html" />
         <option value="$PROJECT_DIR$/registration_system/templates/registration_system/create_report.html" />
         <option value="$PROJECT_DIR$/registration_system/templates/registration_system/view_student_schedule.html" />
         <option value="$PROJECT_DIR$/registration_system/templates/registration_system/create_section.html" />
@@ -289,10 +283,11 @@
         <option value="$PROJECT_DIR$/Andromeda/settings.py" />
         <option value="$PROJECT_DIR$/registration_system/models.py" />
         <option value="$PROJECT_DIR$/registration_system/templates/registration_system/change_semester.html" />
-        <option value="$PROJECT_DIR$/registration_system/views.py" />
         <option value="$PROJECT_DIR$/registration_system/templates/registration_system/update_course.html" />
         <option value="$PROJECT_DIR$/registration_system/templates/registration_system/register_course.html" />
         <option value="$PROJECT_DIR$/assets/js/app.js" />
+        <option value="$PROJECT_DIR$/registration_system/templates/registration_system/view_graphs.html" />
+        <option value="$PROJECT_DIR$/registration_system/views.py" />
       </list>
     </option>
   </component>
@@ -305,9 +300,9 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="383" />
-    <option name="y" value="8" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="553" />
+    <option name="y" value="52" />
     <option name="width" value="1296" />
     <option name="height" value="958" />
   </component>
@@ -554,17 +549,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="703" y="125" width="1296" height="958" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.2484375" side_tool="true" weight="0.3686088" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="10" visible="true" weight="0.32682925" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32682925" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.41847825" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.7515625" weight="0.36919317" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.37783173" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.7515625" visible="true" weight="0.32897604" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17377399" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32942432" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -638,13 +633,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/js/table.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2737">
-          <caret line="161" column="1" lean-forward="true" selection-start-line="161" selection-start-column="1" selection-end-line="161" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.ebextensions/02_packages.config">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -889,13 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/registration_system/templates/registration_system/view_graphs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/registration_system/templates/registration_system/create_report.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
@@ -968,16 +949,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/registration_system/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="1079" column="89" lean-forward="true" selection-start-line="1079" selection-start-column="89" selection-end-line="1079" selection-end-column="89" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/registration_system/templates/registration_system/update_course.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -995,19 +966,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/row.js">
+    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+        <state relative-caret-position="289">
+          <caret line="275" column="32" selection-start-line="275" selection-start-column="32" selection-end-line="275" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
+    <entry file="file://$PROJECT_DIR$/assets/js/row.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3978">
-          <caret line="261" column="34" lean-forward="true" selection-start-line="261" selection-start-column="34" selection-end-line="261" selection-end-column="34" />
+        <state relative-caret-position="-326">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/registration_system/templates/registration_system/view_graphs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="25" column="47" lean-forward="true" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#574#631#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/registration_system/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="2484" column="53" selection-start-line="2484" selection-start-column="53" selection-end-line="2484" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
