@@ -59,7 +59,7 @@ class AppointChair(LoginRequiredMixin, generic.View):
             if userprofile.has_admin():
                 self.is_admin = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         departments = Department.objects.all()
 
@@ -130,7 +130,7 @@ class CreateReport(LoginRequiredMixin, generic.View):
             if user_profile.has_researcher():
                 self.is_researcher = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         rendered = render_component(
             os.path.join(os.getcwd(), 'registration_system', 'static',
@@ -172,7 +172,7 @@ class ViewGraphs(LoginRequiredMixin, generic.View):
             if user_profile.has_researcher():
                 self.is_researcher = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         rendered = render_component(
             os.path.join(os.getcwd(), 'registration_system', 'static',
@@ -256,7 +256,7 @@ class AttendanceSubmitted(LoginRequiredMixin, generic.View):
             if user_profile.has_faculty():
                 self.is_faculty = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         rendered = render_component(
             os.path.join(os.getcwd(), 'registration_system', 'static',
@@ -289,7 +289,7 @@ class ViewAttendance(LoginRequiredMixin, generic.View):
             if user_profile.has_faculty():
                 self.is_faculty = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         if request.is_ajax():
             section_id = request.GET.get('section_id')
@@ -349,7 +349,7 @@ class TakeAttendance(LoginRequiredMixin, generic.View):
             if user_profile.has_faculty():
                 self.is_faculty = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         if request.is_ajax():
             section_id = request.GET.get('section_id')
@@ -451,7 +451,7 @@ class SubmitGrades(LoginRequiredMixin, generic.View):
             if user_profile.has_faculty():
                 self.is_faculty = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         if request.is_ajax():
             section_id = request.GET.get('section_id')
@@ -522,7 +522,7 @@ class ViewFacultySchedule(LoginRequiredMixin, generic.View):
         if userprofile and userprofile.has_faculty():
             self.is_faculty = True
         else:
-            redirect('/student_system/')
+            return redirect('/student_system/')
 
         if request.is_ajax():
             semester_id = request.GET.get('semester_id')
@@ -591,7 +591,7 @@ class ViewStudentSchedule(LoginRequiredMixin, generic.View):
         elif userprofile and userprofile.has_admin():
             self.is_admin = True
         else:
-            redirect('/student_system/')
+            return redirect('/student_system/')
 
         # print(self.is_faculty)
         current_user = userprofile.admin if self.is_admin else userprofile.faculty
@@ -676,7 +676,7 @@ class StudentViewSchedule(LoginRequiredMixin, generic.View):
             if userprofile.has_student():
                 self.is_student = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         if request.is_ajax():
                 semester_id = request.GET.get('semester_id')
@@ -752,7 +752,7 @@ class ViewStudentTranscriptResult(LoginRequiredMixin, generic.View):
         elif userprofile and userprofile.has_admin():
             self.is_admin = True
         else:
-            redirect('/student_system/')
+            return redirect('/student_system/')
         student = Student.objects.get(pk=int(student_id))
         enrollments = Enrollment.objects.filter(student_id=student)
         enrollments_array = []
@@ -826,7 +826,7 @@ class ViewStudentTranscript(LoginRequiredMixin, generic.View):
         elif userprofile and userprofile.has_admin():
             self.is_admin = True
         else:
-            redirect('/student_system/')
+            return redirect('/student_system/')
 
         rendered = render_component(
             os.path.join(os.getcwd(), 'registration_system', 'static',
@@ -887,7 +887,7 @@ class StudentViewStudentTranscript(LoginRequiredMixin, generic.View):
             if userprofile.has_student():
                 self.is_student = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         try:
             student_major_rec = StudentMajor.objects.get(student_id=userprofile.student)
@@ -960,7 +960,7 @@ class DeclareMajor(LoginRequiredMixin, generic.View):
             if userprofile.has_student():
                 self.is_student = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         majors = Major.objects.all()
         has_major = True
@@ -1019,7 +1019,7 @@ class DeclareMinor(LoginRequiredMixin, generic.View):
             if userprofile.has_student():
                 self.is_student = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         minors = Minor.objects.all()
 
@@ -1081,7 +1081,7 @@ class DropCourse(LoginRequiredMixin, generic.View):
             if userprofile.has_student():
                 self.is_student = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         student = userprofile.student
         enrollment = Enrollment.objects.filter(student_id=student, section_id__semester_id__status='OPEN_REGISTRATION')
@@ -1157,7 +1157,7 @@ class RegisterCourse(LoginRequiredMixin, generic.View):
             if userprofile.has_student():
                 self.is_student = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         if request.is_ajax():
             department_id = request.GET.get('department_id')
@@ -1328,7 +1328,7 @@ class ChangeSemesterStatus(LoginRequiredMixin, generic.View):
             if userprofile.has_admin():
                 self.is_admin = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         semesters = Semester.objects.all()
 
@@ -1408,7 +1408,7 @@ class CreateAdvising(LoginRequiredMixin, generic.View):
             if userprofile.has_admin():
                 self.is_admin = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         if request.is_ajax():
             first_name = request.GET.get('first_name')
@@ -1501,7 +1501,7 @@ class ViewHold(LoginRequiredMixin, generic.View):
             if userprofile.has_student():
                 self.is_student = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
         hold = None
         try:
             student = Student.objects.get(pk=int(user.userprofile.student.student_id_id))
@@ -1541,7 +1541,7 @@ class ViewAdvisees(LoginRequiredMixin, generic.View):
             if userprofile.has_faculty():
                 self.is_faculty = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         try:
             faculty = Faculty.objects.get(pk=int(user.userprofile.faculty.faculty_id_id))
@@ -1591,7 +1591,7 @@ class ViewAdvising(LoginRequiredMixin, generic.View):
             if userprofile.has_student():
                 self.is_student = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
         advising = None
         faculty_name = None
         try:
@@ -1634,7 +1634,7 @@ class CreateHold(LoginRequiredMixin, generic.View):
             if userprofile.has_admin():
                 self.is_admin = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         if request.is_ajax():
             first_name = request.GET.get('first_name')
@@ -1716,7 +1716,7 @@ class UpdateSection(LoginRequiredMixin, generic.View):
             if userprofile.has_admin():
                 self.is_admin = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         if request.is_ajax():
             department_id = request.GET.get('department_id')
@@ -1929,7 +1929,7 @@ class CreateSection(LoginRequiredMixin, generic.View):
             if userprofile.has_admin():
                 self.is_admin = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         departments = Department.objects.all()
         buildings = Building.objects.all()
@@ -2052,7 +2052,7 @@ class UpdateCourse(LoginRequiredMixin, generic.View):
             if userprofile.has_admin():
                 self.is_admin = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         if request.is_ajax():
             department_id = request.GET.get('department_id')
@@ -2123,7 +2123,7 @@ class UpdateUser(LoginRequiredMixin, generic.View):
             if userprofile.has_admin():
                 self.is_admin = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         if request.is_ajax():
             first_name = request.GET.get('first_name')
@@ -2216,7 +2216,7 @@ class CreateUser(LoginRequiredMixin, generic.View):
             if userprofile.has_admin():
                 self.is_admin = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         rendered = render_component(
             os.path.join(os.getcwd(), 'registration_system', 'static',
@@ -2319,7 +2319,7 @@ class CreatePrerequisite(LoginRequiredMixin, generic.View):
             if userprofile.has_admin():
                 self.is_admin = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         rendered = render_component(
             os.path.join(os.getcwd(), 'registration_system', 'static',
@@ -2369,7 +2369,7 @@ class CreateCourse(LoginRequiredMixin, generic.View):
             if userprofile.has_admin():
                 self.is_admin = True
             else:
-                redirect('/student_system/')
+                return redirect('/student_system/')
 
         departments = Department.objects.all()
 
@@ -2482,7 +2482,7 @@ def get_csv_report(request):
             cumulative_gpa = 0.0
         else:
             cumulative_gpa = float(grades / counter)
-        writer.writerow(['Student_' + s.student_id_id, cumulative_gpa])
+        writer.writerow(['Student_' + str(s.student_id_id), cumulative_gpa])
 
     return response
 

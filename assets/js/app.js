@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, List, Divider, Header, Table, Form, Segment, Dimmer, Loader } from 'semantic-ui-react';
+import { Container, List, Header, Divider, Header, Table, Form, Segment, Dimmer, Loader } from 'semantic-ui-react';
 import MasterTable from './table';
 
 
@@ -259,6 +259,7 @@ class App extends React.Component {
         }
         return (
             <Container >
+                <Header size='huge'>Master Schedule</Header>
                 <PageInformation/>
                 <Form>
                     <Form.Group widths='equal'>
@@ -299,6 +300,7 @@ class App extends React.Component {
 }
 
 const PageInformation = () => (
+
   <List bulleted>
     <List.Item>All sections taught throughout past and present semester will be displayed in the table below.</List.Item>
     <List.Item>All search queries are made asynchronously you may choose individual filters or multiple at once</List.Item>

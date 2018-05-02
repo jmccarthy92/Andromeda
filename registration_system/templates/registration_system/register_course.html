@@ -166,7 +166,7 @@
                         timeSlotCell.insertAdjacentHTML('afterbegin', "<ul style=\'list-style:none; padding-left:0px\'><li><span style=\'font-weight:bold\'>Room:</span>"+element.meeting_days+"</li><li><span style=\'font-weight:bold;\'>Period:</span>"+element.time_period_range+"</li></span>");
                         $('#'+element.section_id + '_row').find('td:eq(5)').append(seatsText);
                         if(element.can_register)
-                            registerCell.insertAdjacentHTML('afterbegin', '<button type="button" onclick="registerCourse(this.id)" class="ui info button" id="'+element.section_id+'" type="button">Register</button>');
+                            registerCell.insertAdjacentHTML('afterbegin', '<button type="button" onclick="registerCourse(this.id)" class="ui primary button" id="'+element.section_id+'" type="button">Register</button>');
                         else
                             registerCell.insertAdjacentHTML('afterbegin', "<div class='ui red message'>Registered for a course at that time.</div>");
                         prerequisiteCell.insertAdjacentHTML('afterbegin', "<div class='ui relaxed divided list' id='"+element.section_id+"__prerequisites'></div> ");
