@@ -14,7 +14,10 @@
             {% for s in sections %}
                 <div class="ui segments" id="{{ s.section_id }}_segment">
                     <div class="ui segment">
-                      <h1 style=" display: inline;">{{ s.course_name }}</h1>  <span class="ui right aligned float-right course-close" style="float: right;"><i id="{{ s.section_id }}" onclick="dropCourse(this.id)" class="far fa-times-circle " style="font-size: 2rem"></i></span>
+                      <h1 style=" display: inline;">{{ s.course_name }}</h1>
+                        <span class="ui right aligned float-right course-close" style="float: right;">
+                            <i id="{{ s.section_id }}" onclick="dropCourse(this.id)" class="far fa-times-circle " style="font-size: 2rem"></i>
+                        </span>
                     </div>
                     <div class="ui segments">
                         <h5 class="ui attached header">

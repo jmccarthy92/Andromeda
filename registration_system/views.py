@@ -518,7 +518,7 @@ class ViewFacultySchedule(LoginRequiredMixin, generic.View):
             semester_id = request.GET.get('semester_id')
             sections_array = []
             for e in Enrollment.objects.filter(section_id__faculty_id=userprofile.faculty,
-                                               section_id__semester_id__semester_id=int(semester_id)):
+                                               section_id__semester_id__semester_id=int(semester_id)).order_by('section_id__time_slot_id__period_id_start_time'):
                 prerequisites = Prerequisite.objects.filter(course_id=e.section_id.course_id)
                 prereq_array = []
                 for p in prerequisites:
@@ -879,9 +879,13 @@ class StudentViewStudentTranscript(LoginRequiredMixin, generic.View):
             else:
                 redirect('/student_system/')
 
-        student_major_rec = StudentMajor.objects.get(student_id=userprofile.student)
-        student_major = student_major_rec.major_id.name
-        student_major_dep = student_major_rec.major_id.department_id.name
+        try:
+            student_major_rec = StudentMajor.objects.get(student_id=userprofile.student)
+            student_major = student_major_rec.major_id.name
+            student_major_dep = student_major_rec.major_id.department_id.name
+        except StudentMajor.DoesNotExist:
+            student_major = 'None Declared'
+            student_major_dep = 'N/A'
         adviser_array = []
         for a in Advising.objects.filter(student_id=userprofile.student):
             adviser_array.append({

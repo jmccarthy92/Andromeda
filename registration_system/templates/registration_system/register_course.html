@@ -191,23 +191,23 @@
                 success: function(data){
 
                     if(data.has_hold === true){
-                        $('#'+section_id + '_row').find('td:eq(9)').empty();
-                        $('#'+section_id + '_row').find('td:eq(9)').append("<div class='ui red message'>You currently have a hold preventing you from reigstering.</div> ");
+                        $('#'+section_id + '_row').find('td:eq(10)').empty();
+                        $('#'+section_id + '_row').find('td:eq(10)').append("<div class='ui red message'>You currently have a hold preventing you from reigstering.</div> ");
                     } else if(data.time_conflict === true){
-                        $('#'+section_id + '_row').find('td:eq(9)').empty();
-                        $('#'+section_id + '_row').find('td:eq(9)').append("<div class='ui red message'>You are currently registered for a class in that time-slot.</div> ");
+                        $('#'+section_id + '_row').find('td:eq(10)').empty();
+                        $('#'+section_id + '_row').find('td:eq(10)').append("<div class='ui red message'>You are currently registered for a class in that time-slot.</div> ");
                     } else if(data.unfulfilled_prerequisite === true){
-                        $('#'+section_id + '_row').find('td:eq(9)').empty();
-                        $('#'+section_id + '_row').find('td:eq(9)').append("<div class='ui red message'>You do not currently fulfill the prerequisites for this class.</div> ");
+                        $('#'+section_id + '_row').find('td:eq(10)').empty();
+                        $('#'+section_id + '_row').find('td:eq(10)').append("<div class='ui red message'>You do not currently fulfill the prerequisites for this class.</div> ");
                     } else {
-                        $('#'+section_id + '_row').find('td:eq(9)').empty();
-                        $('#'+section_id + '_row').find('td:eq(9)').append("<div class='ui green message'>Course registered successfully.</div> ");
+                        $('#'+section_id + '_row').find('td:eq(10)').empty();
+                        $('#'+section_id + '_row').find('td:eq(10)').append("<div class='ui green message'>Course registered successfully.</div> ");
                     }
                 },
 
                 error: function(data){
-                    $("#"+section_id+ '_row').find('td:eq(8)').empty();
-                    $("#"+section_id+ '_row').find('td:eq(8)').append("<div class='ui red header'>Error Occurred in Registering</div> ");
+                    $("#"+section_id+ '_row').find('td:eq(10)').empty();
+                    $("#"+section_id+ '_row').find('td:eq(10)').append("<div class='ui red header'>Error Occurred in Registering</div> ");
                 }
             })
 
