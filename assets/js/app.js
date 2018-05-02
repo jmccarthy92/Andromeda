@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, List, Header, Divider, Header, Table, Form, Segment, Dimmer, Loader } from 'semantic-ui-react';
+import { Container, List, Divider, Header, Table, Form, Segment, Dimmer, Loader } from 'semantic-ui-react';
 import MasterTable from './table';
 
 
