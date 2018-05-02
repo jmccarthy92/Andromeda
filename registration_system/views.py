@@ -1074,7 +1074,7 @@ class DropCourse(LoginRequiredMixin, generic.View):
                 redirect('/student_system/')
 
         student = userprofile.student
-        enrollment = Enrollment.objects.filter(student_id=student)
+        enrollment = Enrollment.objects.filter(student_id=student, section_id__semester_id__status='OPEN_REGISTRATION')
         sections_array = []
         for e in enrollment:
             prerequisites = Prerequisite.objects.filter(course_id=e.section_id.course_id)
@@ -1159,15 +1159,18 @@ class RegisterCourse(LoginRequiredMixin, generic.View):
             # print(department_name)
             # if department_id == '---------' and course_id == '---------' and
             if department_id is not None and department_id != '':
-                section = Section.objects.filter(course_id__department_id_id=int(department_id))
+                section = Section.objects.filter(course_id__department_id_id=int(department_id),
+                                                 semester_id__status='OPEN_REGISTRATION')
             elif course_id is not None and course_id != '':
-                section = Section.objects.filter(course_id=int(course_id))
+                section = Section.objects.filter(course_id=int(course_id), semester_id__status='OPEN_REGISTRATION')
             elif days_id is not None and days_id != '':
-                section = Section.objects.filter(time_slot_id__days_id=int(days_id))
+                section = Section.objects.filter(time_slot_id__days_id=int(days_id),
+                                                 semester_id__status='OPEN_REGISTRATION')
             elif faculty_id is not None and faculty_id != '':
-                section = Section.objects.filter(faculty_id=int(faculty_id))
+                section = Section.objects.filter(faculty_id=int(faculty_id), semester_id__status='OPEN_REGISTRATION')
             elif period_id is not None and period_id != '':
-                section = Section.objects.filter(time_slot_id__period_id=int(period_id))
+                section = Section.objects.filter(time_slot_id__period_id=int(period_id),
+                                                 semester_id__status='OPEN_REGISTRATION')
             else:
                 section = Section.objects.all()
 
@@ -1183,9 +1186,14 @@ class RegisterCourse(LoginRequiredMixin, generic.View):
                         'prerequisite_name': p.course_required_id.name,
                         'prerequisite_id': p.course_required_id.course_id
                     })
-                for e in Enrollment.objects.all():
+                for e in Enrollment.objects.filter(section_id__semester_id__status='OPEN_REGISTRATION'):
                     if e.student_id_id == student_id:
-                        if e.section_id.time_slot_id.period_id.start_time == s.time_slot_id.period_id.start_time or e.section_id.time_slot_id.period_id.end_time == s.time_slot_id.period_id.end_time:
+                        if (e.section_id.time_slot_id.period_id.start_time == s.time_slot_id.period_id.start_time
+                            and (e.section_id.time_slot_id.days_id.day_1 == s.time_slot_id.days_id.day_1
+                                 or e.section_id.time_slot_id.days_id.day_2 == s.time_slot_id.days_id.day_2)) \
+                                or (e.section_id.time_slot_id.period_id.end_time == s.time_slot_id.period_id.end_time
+                                    and (e.section_id.time_slot_id.days_id.day_1 == s.time_slot_id.days_id.day_1
+                                         or e.section_id.time_slot_id.days_id.day_2 == s.time_slot_id.days_id.day_2)):
                             can_register = False
                 data = {
                     'section_id': s.section_id,
@@ -1326,6 +1334,7 @@ class ChangeSemesterStatus(LoginRequiredMixin, generic.View):
 
         return render(request, self.template_name, context)
 
+    # TODO: Add more logic to remove students who do not fulfill prerequisites if closing from open_registration
     def post(self, request, *args, **kwargs):
         data = {
             'is_successful': False
@@ -1334,9 +1343,40 @@ class ChangeSemesterStatus(LoginRequiredMixin, generic.View):
             semester_id = request.POST.get('semester_id')
             status = request.POST.get('status')
             semester = Semester.objects.get(pk=int(semester_id))
+            student_disenrolled = []
+            if semester.status == 'OPEN_REGISTRATION':
+                if status == 'CLOSE':
+                    for e in Enrollment.objects.filter(section_id__semester_id_id=int(semester_id)):
+                        try:
+                            prerequisites = Prerequisite.objects.filter(course_id=e.section_id.course_id)
+                            enrolled_student = Student.objects.get(student_id=e.student_id)
+                            for se in Enrollment.objects.filter(student_id=enrolled_student):
+                                for p in prerequisites:
+                                    if se.section_id.course_id_id == p.course_required_id_id:
+                                        if se.grade in ['A', 'A-', 'B', 'B-', 'C']:
+                                            continue
+                                        else:
+                                            student_disenrolled.append({
+                                                'student_name': se.student_id.student_id.user.first_name + ' '
+                                                + se.student_id.student_id.user.last_name,
+                                                'class_dropped': e.section_id.course_id.name,
+                                                'section_id_dropped': e.section_id_id
+                                            })
+                                            se.delete()
+                                    else:
+                                        student_disenrolled.append({
+                                            'student_name': se.student_id.student_id.user.first_name + ' '
+                                            + se.student_id.student_id.user.last_name,
+                                            'class_dropped': e.section_id.course_id.name,
+                                            'section_id_dropped': e.section_id_id
+                                        })
+                                        se.delete()
+                        except Prerequisite.DoesNotExist:
+                            continue
             semester.status = status
             semester.save()
             data['is_successful'] = True
+            data['students_disenrolled'] = student_disenrolled
         else:
             data['is_successful'] = False
         return JsonResponse(data)

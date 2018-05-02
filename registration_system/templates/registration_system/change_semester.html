@@ -29,7 +29,7 @@
                     <select id="status_name_id" class="ui fluid dropdown">
                         <option value="OPEN_GRADING">OPEN GRADING</option>
                         <option value="CLOSE">CLOSE GRADING</option>
-                        <option value="OPEN_REGISTRATION">OPEN_REGISTRATION</option>
+                        <option value="OPEN_REGISTRATION">OPEN REGISTRATION</option>
                         <option value="CLOSE">CLOSE REGISTRATION</option>
                     </select>
                 </div>
@@ -59,12 +59,18 @@
                     csrfmiddlewaretoken: '{{ csrf_token }}'
                 },
 
-                success: function(){
-                    $('#success').append("<div class=\"ui positive message\">\n" +
-                        "  <div class=\"header\">\n" +
-                        "    Semester Status updated successfully!\n" +
-                        "  </div>\n" +
-                        "</div>")
+                success: function(data){
+                    if( data.is_successful === true && data.students_disenrolled){
+                        $('#success').append("<div class=\"ui positive message\">\n" +
+                            "  <div id='success_content' class=\"header\">\n" +
+                            "    Semester Status updated successfully!\n" +
+                            "  </div>\n" +
+                            "</div>");
+                        data.students_disenrolled.forEach(function(e){
+                            $('#success_content').append("Student "+e.student_name+" was removed from the enrollment in section " + e.section_id_dropped + " course "+e.class_dropped );
+                        });
+                    }
+
                 }
             })
 

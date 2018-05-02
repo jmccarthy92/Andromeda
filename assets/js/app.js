@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Divider, Header, Table, Form, Segment, Dimmer, Loader } from 'semantic-ui-react';
+import { Container, List, Divider, Header, Table, Form, Segment, Dimmer, Loader } from 'semantic-ui-react';
 import MasterTable from './table';
 
 
@@ -246,6 +246,8 @@ class App extends React.Component {
 
     render() {
 
+
+
         if( this.state.isLoading){
             return(
                 <Segment>
@@ -257,6 +259,7 @@ class App extends React.Component {
         }
         return (
             <Container >
+                <PageInformation/>
                 <Form>
                     <Form.Group widths='equal'>
                         <Form.Select id='department_select' onChange={(e, {value, id}) => this.handleSelectChange(value, id)} fluid label='Department Name'  options={this.state.departments} placeholder='Department Name'/>
@@ -295,6 +298,21 @@ class App extends React.Component {
 
 }
 
+const PageInformation = () => (
+  <List bulleted>
+    <List.Item>All sections taught throughout past and present semester will be displayed in the table below.</List.Item>
+    <List.Item>All search queries are made asynchronously you may choose individual filters or multiple at once</List.Item>
+    <List.Item>
+      When clicking a row, a modal window is displayed with the following information:
+      <List.List>
+        <List.Item >Course Description</List.Item>
+        <List.Item>Credits</List.Item>
+        <List.Item>Prerequisites</List.Item>
+      </List.List>
+    </List.Item>
+      <List.Item href='/student_system/register_course/'>If logged in as a student access the registration page by clicking here! </List.Item>
+  </List>
+);
 
 
 export default App;

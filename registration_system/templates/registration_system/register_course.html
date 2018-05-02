@@ -9,8 +9,17 @@
         {{ rendered|safe }}
     </div>
 
-    <div class="ui container m-top2" style="padding-top: 5rem; margin-bottom: 4rem;">
-        <div class="ui form" id="ui-form">
+    <div class="ui container m-top2" style="padding-top: 1rem; margin-bottom: 4rem;">
+        <ul class="ui list">
+          <li>Students may only register for semester that have a status of OPEN REGISTRATION</li>
+          <li>Please not students may not be able to register for courses for the following reasons
+            <ul>
+              <li>Hold is placed on account.</li>
+              <li>There is a scheduling conflict with a course currently registered.</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="ui form m-top2" id="ui-form">
             <div class="inline fields">
                 <div class="field">
                     <label for="id_department_id">Department</label>

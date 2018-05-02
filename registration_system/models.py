@@ -438,7 +438,7 @@ class Enrollment(models.Model):
         return '{} {} {}'.format(self.student_id, self.section_id, self.grade)
 
     def grade_c_or_above(self):
-        return self.grade in ['A', 'A-', 'B', 'B-', 'C',]
+        return self.grade in ['A', 'A-', 'B', 'B-', 'C']
 
     class Meta:
         unique_together = ('student_id', 'section_id')
