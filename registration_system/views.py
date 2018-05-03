@@ -527,27 +527,27 @@ class ViewFacultySchedule(LoginRequiredMixin, generic.View):
         if request.is_ajax():
             semester_id = request.GET.get('semester_id')
             sections_array = []
-            for e in Enrollment.objects.filter(section_id__faculty_id=userprofile.faculty,
-                                               section_id__semester_id__semester_id=int(semester_id)).order_by('section_id__time_slot_id__period_id_start_time'):
-                prerequisites = Prerequisite.objects.filter(course_id=e.section_id.course_id)
+            for e in Section.objects.filter(faculty_id=userprofile.faculty,
+                                            semester_id_id=int(semester_id)).order_by('time_slot_id'):
+                prerequisites = Prerequisite.objects.filter(course_id=e.course_id)
                 prereq_array = []
                 for p in prerequisites:
                     prereq_array.append({
                         'name': p.course_required_id.name
                     })
-                faculty_name = e.section_id.faculty_id.faculty_id.user.first_name + " " + e.section_id.faculty_id.faculty_id.user.last_name
+                faculty_name = e.faculty_id.faculty_id.user.first_name + " " + e.faculty_id.faculty_id.user.last_name
                 sections_array.append({
-                    'section_id': e.section_id_id,
-                    'course_name': e.section_id.course_id.name,
+                    'section_id': e.section_id,
+                    'course_name': e.course_id.name,
                     'professor': faculty_name,
-                    'credits': e.section_id.course_id.credits,
-                    'room_number': e.section_id.room_id.room_number,
-                    'building': e.section_id.room_id.building_id.name,
-                    'meeting_days': e.section_id.time_slot_id.days_id.day_1 + " " + e.section_id.time_slot_id.days_id.day_2,
-                    'time_period': e.section_id.time_slot_id.period_id.start_time.strftime('%H:%M %p') + "-"
-                                   + e.section_id.time_slot_id.period_id.end_time.strftime('%H:%M %p'),
-                    'seats_taken': e.section_id.seats_taken,
-                    'seating_capacity': e.section_id.room_id.capacity,
+                    'credits': e.course_id.credits,
+                    'room_number': e.room_id.room_number,
+                    'building': e.room_id.building_id.name,
+                    'meeting_days': e.time_slot_id.days_id.day_1 + " " + e.time_slot_id.days_id.day_2,
+                    'time_period': e.time_slot_id.period_id.start_time.strftime('%H:%M %p') + "-"
+                                   + e.time_slot_id.period_id.end_time.strftime('%H:%M %p'),
+                    'seats_taken': e.seats_taken,
+                    'seating_capacity': e.room_id.capacity,
                     'prerequisites': prereq_array
                 })
 
