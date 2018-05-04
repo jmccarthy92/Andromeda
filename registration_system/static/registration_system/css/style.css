@@ -7,6 +7,7 @@ p {
     font-family: "Montserrat";
 }
 
+
 .index-font-size {
     font-size: 1.2rem;
 }
@@ -61,8 +62,21 @@ body {
     margin-top: 2rem;
 }
 
+.m-top3{
+    margin-top: 3em !important;
+}
+
+.transp-white{
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 25px;
+}
+
 .m-top6{
     margin-top: 6rem;
+}
+
+.m-tope6{
+    margin-top: 6em !important;
 }
 
 .m-top8{

@@ -26,7 +26,7 @@
             {% endblock %}
         </div>
 
-        <div class="ui container centered m-top2" id="andromeda_content">
+        <div class="ui container centered m-top2 {% block extra_content_class %}{% endblock %}" id="andromeda_content">
             {% block content %}
 
             {% endblock %}

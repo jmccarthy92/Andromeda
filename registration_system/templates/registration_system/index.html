@@ -1,17 +1,28 @@
 {% extends "registration_system/partials/base.html" %}
 {% load staticfiles %}
+{% block extra_head %}
+    {{ block.super }}
+    <style>
+        body {
+            background-image: url('{% static 'registration_system/images/college_bg_img.jpg' %}');
+            background-size: cover;
+            background-attachment: fixed;
+            {#background-repeat: no-repeat;#}
+            {#height: 100%;#}
+            background-repeat: no-repeat;
+        }
+    </style>
+{% endblock %}
+
 {% block navbar %}
     {% include "registration_system/partials/main_navbar.html" %}
 {% endblock %}
 
-<script>
-    var image_link = '{% static "registration_system/images/college_admissions_image.jpg" %}';
-</script>
 
 {% block banner %}
-    <img class="ui fluid image banner-image" src="{% static 'registration_system/images/college_test_image.jpeg' %}">
+{#    <img class="ui fluid image banner-image" src="{% static 'registration_system/images/college_test_image.jpeg' %}">#}
 {% endblock %}
-
+{% block extra_content_class %}raised very padded container segment p-top1 transp-white m-tope6{% endblock %}
 {% block content %}
     <h1 class="ui center aligned header tsize-2">
         <i class="fas fa-graduation-cap"></i>
@@ -24,6 +35,13 @@
         {{ rendered|safe }}
     </div>
 
-    <h1>{{ csrf_token }}</h1>
+{#    <h1>{{ csrf_token }}</h1>#}
 {% endblock %}
+
+{#<script>#}
+    {#var image_link = '{% static "registration_system/images/college_admissions_image.jpg" %}';#}
+{#    window.onload = function() {#}
+{#        $('#andromeda_content').addClass('raised very padded text segment');#}
+{#    }#}
+{#</script>#}
 

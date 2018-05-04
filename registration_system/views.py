@@ -2408,6 +2408,7 @@ class UserDisplay(LoginRequiredMixin, generic.View):
     is_faculty = False
     is_admin = False
     is_researcher = False
+    bg_img = 'registration_system/images/college_bg_img.jpg'
 
     def get(self, request):
         user = request.user
@@ -2415,6 +2416,7 @@ class UserDisplay(LoginRequiredMixin, generic.View):
         if userprofile:
             if userprofile.has_student():
                 student = Student.objects.get(student_id=userprofile)
+                self.bg_img = 'registration_system/images/student_display_bg.jpg'
                 if student.has_full_time_student():
                     self.is_full_time_student = True
                 elif student.has_part_time_student():
@@ -2422,8 +2424,10 @@ class UserDisplay(LoginRequiredMixin, generic.View):
             elif userprofile.has_admin():
                 self.is_admin = True
             elif userprofile.has_researcher():
+                self.bg_img = 'registration_system/images/researcher_display_bg.jpg'
                 self.is_researcher = True
             elif userprofile.has_faculty():
+                self.bg_img = 'registration_system/images/faculty_display_bg.jpg'
                 faculty = Faculty.objects.get(faculty_id=userprofile)
                 # print(faculty)
                 self.is_faculty = True
@@ -2443,10 +2447,11 @@ class UserDisplay(LoginRequiredMixin, generic.View):
                 'is_faculty': self.is_faculty,
                 'is_researcher': self.is_researcher,
                 'is_student': is_student,
+                'bg_img': self.bg_img
             },
             to_static_markup=False,
         )
-        return render(request, self.template_name, {'rendered': rendered, 'user': user})
+        return render(request, self.template_name, {'rendered': rendered, 'user': user, 'bg_img': self.bg_img})
 
 
 # TODO: Finish CSV Report

@@ -1,10 +1,22 @@
 {% extends "registration_system/partials/base.html" %}
 {% load staticfiles %}
+{% block extra_head %}
+    {{ block.super }}
+    <style>
+        body {
+            background-image: url('/static/{{ bg_img }}');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+    </style>
+{% endblock %}
 {% block navbar %}
     {% include "registration_system/partials/main_navbar.html" %}
 {% endblock %}
 {% block content %}
 {#    {% csrf_token %}#}
+    <h1>{{ bg_img }}</h1>
     <div class="ui container">
         {{ rendered|safe }}
     </div>
