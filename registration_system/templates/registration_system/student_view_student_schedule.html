@@ -1,5 +1,9 @@
 {% extends "registration_system/partials/base.html" %}
 {% load staticfiles %}
+{% block extra_head %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'registration_system/css/table.css' %}" />
+{% endblock %}
 {% block navbar %}
     {% include "registration_system/partials/main_navbar.html" %}
 {% endblock %}
@@ -27,16 +31,179 @@
          </div>
 
         <div id="content">
-
+            <table id="schedule_table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>
+                    <span class="day">1</span>
+                    <span class="long">Monday</span>
+                    <span class="short">Mon</span>
+                  </th>
+                  <th>
+                    <span class="day">2</span>
+                    <span class="long">Tuesday</span>
+                    <span class="short">Tue</span>
+                  </th>
+                  <th>
+                    <span class="day">3</span>
+                    <span class="long">Wendsday</span>
+                    <span class="short">We</span>
+                  </th>
+                  <th>
+                    <span class="day">4</span>
+                    <span class="long">Thursday</span>
+                    <span class="short">Thur</span>
+                  </th>
+                  <th>
+                    <span class="day active">5</span>
+                    <span class="long">Friday</span>
+                    <span class="short">Fri</span>
+                  </th>
+                  <th>
+                    <span class="day">6</span>
+                    <span class="long">Saturday</span>
+                    <span class="short">Sat</span>
+                  </th>
+                  <th>
+                    <span class="day">7</span>
+                    <span class="long">Sunday</span>
+                    <span class="short">Sun</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="hour" rowspan="1"><span>8:00am</span></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                </tr>
+                <tr>
+                  <td class="hour" rowspan="1"><span>9:40am</span></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                </tr>
+                <tr>
+                  <td class="hour" rowspan="1"><span>11:20am</span></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                </tr>
+                <tr>
+                  <td class="hour" rowspan="1"><span>13:00pm</span></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                </tr>
+                <tr>
+                  <td class="hour" rowspan="1"><span>14:40pm</span></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                </tr>
+                <tr>
+                  <td class="hour" rowspan="1"><span>16:20pm</span></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                </tr>
+                <tr>
+                  <td class="hour" rowspan="1"><span>18:00pm</span></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                </tr>
+                <tr>
+                  <td class="hour" rowspan="1"><span>19:40pm</span></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                </tr>
+                <tr>
+                  <td class="hour" rowspan="1"><span>21:20pm</span></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                </tr>
+                <tr>
+                  <td class="hour" rowspan="1"><span>23:00pm</span></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                </tr>
+                <tr>
+                  <td class="hour" rowspan="1"><span>01:00am</span></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                  <td class="cell_data"></td>
+                </tr>
+              </tbody>
+            </table>
         </div>
-        <div id="success">
-
+         <div class="ui modal">
+{#          <i class="close icon"></i>#}
+          <div class="header">
+          </div>
+          <div id="modal_content" class="content">
+          </div>
+          <div class="actions">
+            <div class="ui black deny button">
+              Close
+            </div>
+          </div>
         </div>
     </div>
 
     <script>
         function getSections(){
-            removeSections();
+            {#removeSections();#}
+            removeCellData();
             var semester_id = $('#id_semester_id').val();
             $.ajax({
                 type: "GET",
@@ -46,47 +213,285 @@
                 },
                 success: function(data) {
                      data.sections_array.forEach(function(s){
-                           $('#content').append("<div class='ui segments' id='"+ s.section_id +"'_segment'>\n" +
+                          mapTimeSlotToSchedule(s.start_time, s.day_1, s.day_2, s.course_name, s.section_id, s.credits, s.building, s.room_number, s.seats_taken, s.seating_capacity);
+                     });
+                }
+            });
+        }
+
+         function mapTimeSlotToSchedule(start_time, day1, day2, course_name, section_id, credits, building, room , seats_taken, seating_capacity){
+            let table = $('#schedule_table')[0];
+            let cell_day_1, cell_day_2;
+            switch(start_time) {
+                case '08:00':
+                    switch(day1) {
+                        case 'Monday':
+                            cell_day_1 = table.rows[1].cells[1];
+                            break;
+                        case 'Tuesday':
+                            cell_day_1 = table.rows[1].cells[2];
+                            break;
+                    }
+                    switch(day2) {
+                        case 'Wednesday':
+                            cell_day_2 = table.rows[1].cells[3];
+                            break;
+                        case 'Thursday':
+                            cell_day_2 = table.rows[1].cells[4];
+                            break;
+                    }
+                    break;
+                case '09:40':
+                     switch(day1) {
+                        case 'Monday':
+                            cell_day_1 = table.rows[2].cells[1];
+                            break;
+                        case 'Tuesday':
+                            cell_day_1 = table.rows[2].cells[2];
+                            break;
+                    }
+                    switch(day2) {
+                        case 'Wednesday':
+                            cell_day_2 = table.rows[2].cells[3];
+                            break;
+                        case 'Thursday':
+                            cell_day_2 = table.rows[2].cells[4];
+                            break;
+                    }
+                    break;
+                case '11:20':
+                     switch(day1) {
+                        case 'Monday':
+                            cell_day_1 = table.rows[3].cells[1];
+                            break;
+                        case 'Tuesday':
+                            cell_day_1 = table.rows[3].cells[2];
+                            break;
+                    }
+                    switch(day2) {
+                        case 'Wednesday':
+                            cell_day_2 = table.rows[3].cells[3];
+                            break;
+                        case 'Thursday':
+                            cell_day_2 = table.rows[3].cells[4];
+                            break;
+                    }
+                    break;
+                case '13:00':
+                     switch(day1) {
+                        case 'Monday':
+                            cell_day_1 = table.rows[4].cells[1];
+                            break;
+                        case 'Tuesday':
+                            cell_day_1 = table.rows[4].cells[2];
+                            break;
+                    }
+                    switch(day2) {
+                        case 'Wednesday':
+                            cell_day_2 = table.rows[4].cells[3];
+                            break;
+                        case 'Thursday':
+                            cell_day_2 = table.rows[4].cells[4];
+                            break;
+                    }
+                    break;
+                case '14:40':
+                     switch(day1) {
+                        case 'Monday':
+                            cell_day_1 = table.rows[5].cells[1];
+                            break;
+                        case 'Tuesday':
+                            cell_day_1 = table.rows[5].cells[2];
+                            break;
+                    }
+                    switch(day2) {
+                        case 'Wednesday':
+                            cell_day_2 = table.rows[5].cells[3];
+                            break;
+                        case 'Thursday':
+                            cell_day_2 = table.rows[5].cells[4];
+                            break;
+                    }
+                    break;
+                case '16:20':
+                     switch(day1) {
+                        case 'Monday':
+                            cell_day_1 = table.rows[6].cells[1];
+                            break;
+                        case 'Tuesday':
+                            cell_day_1 = table.rows[6].cells[2];
+                            break;
+                    }
+                    switch(day2) {
+                        case 'Wednesday':
+                            cell_day_2 = table.rows[6].cells[3];
+                            break;
+                        case 'Thursday':
+                            cell_day_2 = table.rows[6].cells[4];
+                            break;
+                    }
+                    break;
+                case '18:00':
+                     switch(day1) {
+                        case 'Monday':
+                            cell_day_1 = table.rows[7].cells[1];
+                            break;
+                        case 'Tuesday':
+                            cell_day_1 = table.rows[7].cells[2];
+                            break;
+                    }
+                    switch(day2) {
+                        case 'Wednesday':
+                            cell_day_2 = table.rows[7].cells[3];
+                            break;
+                        case 'Thursday':
+                            cell_day_2 = table.rows[7].cells[4];
+                            break;
+                    }
+                    break;
+                case '19:40':
+                     switch(day1) {
+                        case 'Monday':
+                            cell_day_1 = table.rows[8].cells[1];
+                            break;
+                        case 'Tuesday':
+                            cell_day_1 = table.rows[8].cells[2];
+                            break;
+                    }
+                    switch(day2) {
+                        case 'Wednesday':
+                            cell_day_2 = table.rows[8].cells[3];
+                            break;
+                        case 'Thursday':
+                            cell_day_2 = table.rows[8].cells[4];
+                            break;
+                    }
+                    break;
+                case '21:20':
+                     switch(day1) {
+                        case 'Monday':
+                            cell_day_1 = table.rows[9].cells[1];
+                            break;
+                        case 'Tuesday':
+                            cell_day_1 = table.rows[9].cells[2];
+                            break;
+                    }
+                    switch(day2) {
+                        case 'Wednesday':
+                            cell_day_2 = table.rows[9].cells[3];
+                            break;
+                        case 'Thursday':
+                            cell_day_2 = table.rows[9].cells[4];
+                            break;
+                    }
+                    break;
+                case '23:00':
+                     switch(day1) {
+                        case 'Monday':
+                            cell_day_1 = table.rows[10].cells[1];
+                            break;
+                        case 'Tuesday':
+                            cell_day_1 = table.rows[10].cells[2];
+                            break;
+                    }
+                    switch(day2) {
+                        case 'Wednesday':
+                            cell_day_2 = table.rows[10].cells[3];
+                            break;
+                        case 'Thursday':
+                            cell_day_2 = table.rows[10].cells[4];
+                            break;
+                    }
+                    break;
+                case '01:00':
+                     switch(day1) {
+                        case 'Monday':
+                            cell_day_1 = table.rows[11].cells[1];
+                            break;
+                        case 'Tuesday':
+                            cell_day_1 = table.rows[11].cells[2];
+                            break;
+                    }
+                    switch(day2) {
+                        case 'Wednesday':
+                            cell_day_2 = table.rows[11].cells[3];
+                            break;
+                        case 'Thursday':
+                            cell_day_2 = table.rows[11].cells[4];
+                            break;
+                    }
+                    break;
+            }
+            $(cell_day_1).click(function() {
+                {#console.log("hello");#}
+                  $('#modal_content').empty();
+                 $('#modal_content').append("<div class='ui segments' id='"+ section_id +"'_segment'1>\n" +
                                                 "                    <div class=\"ui segment\">\n" +
-                                                "                      <h1>"+ s.course_name +"</h1>\n" +
+                                                "                      <h1>"+ course_name +"</h1>\n" +
                                                 "                    </div>\n" +
                                                 "                    <div class=\"ui segments\">\n" +
-                                                "                        <h5 class=\"ui attached header\">\n" +
-                                                "                          Professor\n" +
-                                                "                        </h5>\n" +
-                                                "                        <div class=\"ui attached segment\">\n" +
-                                                "                          <p>"+ s.professor +"</p>\n" +
-                                                "                        </div>\n" +
                                                 "                        <h5 class=\"ui attached header\">\n" +
                                                 "                          Credits\n" +
                                                 "                        </h5>\n" +
                                                 "                        <div class=\"ui attached segment\">\n" +
-                                                "                          <p>"+ s.credits +"</p>\n" +
+                                                "                          <p>"+ credits +"</p>\n" +
                                                 "                        </div>\n" +
                                                 "                        <h5 class=\"ui attached header\">\n" +
                                                 "                            Location\n" +
                                                 "                        </h5>\n" +
                                                 "                        <div class=\"ui attached segment\">\n" +
-                                                "                          <p>"+ s.building +" -- "+ s.room_number +"</p>\n" +
-                                                "                        </div>\n" +
-                                                "                        <h5 class=\"ui attached header\">\n" +
-                                                "                            Time Slot\n" +
-                                                "                        </h5>\n" +
-                                                "                        <div class=\"ui attached segment\">\n" +
-                                                "                          <p>" + s.meeting_days +"</p><br/>\n" +
-                                                "                            <p>" + s.time_period +"</p>\n" +
+                                                "                          <p>"+ building +" -- "+ room +"</p>\n" +
                                                 "                        </div>\n" +
                                                 "                        <h5 class=\"ui attached header\">\n" +
                                                 "                            Seating\n" +
                                                 "                        </h5>\n" +
                                                 "                        <div class=\"ui attached segment\">\n" +
-                                                "                          <p>"+ s.seats_taken +" / "+ s.seating_capacity +"</p>\n" +
+                                                "                          <p>"+ seats_taken +" / "+ seating_capacity +"</p>\n" +
                                                 "                        </div>\n" +
                                                 "                    </div>\n" +
-                                                "                </div>")
-                     });
-                }
+                                                "                </div>");
+                 $('.ui.modal').modal('show');
             });
+             $(cell_day_2).click(function() {
+                {#console.log("hello");#}
+                  $('#modal_content').empty();
+                 $('#modal_content').append("<div class='ui segments' id='"+ section_id +"'_segment'1>\n" +
+                                                "                    <div class=\"ui segment\">\n" +
+                                                "                      <h1>"+ course_name +"</h1>\n" +
+                                                "                    </div>\n" +
+                                                "                    <div class=\"ui segments\">\n" +
+                                                "                        <h5 class=\"ui attached header\">\n" +
+                                                "                          Credits\n" +
+                                                "                        </h5>\n" +
+                                                "                        <div class=\"ui attached segment\">\n" +
+                                                "                          <p>"+ credits +"</p>\n" +
+                                                "                        </div>\n" +
+                                                "                        <h5 class=\"ui attached header\">\n" +
+                                                "                            Location\n" +
+                                                "                        </h5>\n" +
+                                                "                        <div class=\"ui attached segment\">\n" +
+                                                "                          <p>"+ building +" -- "+ room +"</p>\n" +
+                                                "                        </div>\n" +
+                                                "                        <h5 class=\"ui attached header\">\n" +
+                                                "                            Seating\n" +
+                                                "                        </h5>\n" +
+                                                "                        <div class=\"ui attached segment\">\n" +
+                                                "                          <p>"+ seats_taken +" / "+ seating_capacity +"</p>\n" +
+                                                "                        </div>\n" +
+                                                "                    </div>\n" +
+                                                "                </div>");
+                 $('.ui.modal').modal('show');
+            });
+            $(cell_day_1).addClass('highlighted_row');
+            $(cell_day_1).append('<strong>'+course_name+' <br/>Sec. ID: '+section_id+'</strong>');
+            $(cell_day_2).addClass('highlighted_row');
+            $(cell_day_2).append('<strong>'+course_name+' <br/>Sec. ID: '+section_id+'</strong>');
+
+        }
+
+        function removeCellData(){
+            $('#schedule_table tbody tr .cell_data').empty();
+            $('#schedule_table tbody tr .cell_data').removeClass('highlighted_row');
         }
 
         function removeSections(){

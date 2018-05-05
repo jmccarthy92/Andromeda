@@ -75,6 +75,11 @@ body {
     margin-top: 6rem;
 }
 
+.highlighted_row {
+    background-color: yellow;
+    border: 1px solid black;
+}
+
 .m-tope6{
     margin-top: 6em !important;
     margin-bottom: 4em !important;
