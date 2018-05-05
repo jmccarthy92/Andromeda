@@ -37,7 +37,7 @@ class Index extends React.Component {
                 />
 
                 {/*<DropdownExampleSelection/>*/}
-                <Card fluid  color='black' >
+                <Card fluid  color='black' style={{backgroundColor: 'rgba(255, 255, 255, 0.92)!important'}} >
                     <Card.Content extra>
                         { this.props.is_student &&
                             (<FaGraduationCap size='50' />)

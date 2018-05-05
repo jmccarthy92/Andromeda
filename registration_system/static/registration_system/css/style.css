@@ -67,7 +67,7 @@ body {
 }
 
 .transp-white{
-    background-color: rgba(255, 255, 255, 0.9) !important;
+    background-color: rgba(255, 255, 255, 0.92) !important;
     border-radius: 25px;
 }
 
@@ -77,6 +77,7 @@ body {
 
 .m-tope6{
     margin-top: 6em !important;
+    margin-bottom: 4em !important;
 }
 
 .m-top8{

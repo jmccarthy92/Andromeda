@@ -4,11 +4,17 @@
     {{ block.super }}
     <style>
         body {
-            background-image: url('/static/{{ bg_img }}');
+            {#background-image: url('/static/{{ bg_img }}');#}
+            background:  linear-gradient(
+                rgba(255, 255, 255, 0.45),
+                rgba(255, 255, 255, 0.45)
+                ),url('/static/{{ bg_img }}');
             background-size: cover;
             background-attachment: fixed;
             background-repeat: no-repeat;
         }
+
+
     </style>
 {% endblock %}
 {% block navbar %}
