@@ -858,9 +858,15 @@ class ViewStudentTranscript(LoginRequiredMixin, generic.View):
         # print(request.POST)
 
         if username:
-            user = User.objects.get(username=username)
+            try:
+                user = User.objects.get(username=username)
+            except User.DoesNotExist:
+                user = False
         elif email:
-            user = User.objects.get(email=email)
+            try:
+                user = User.objects.get(email=email)
+            except User.DoesNotExist:
+                user = False
         else:
             user = False
 

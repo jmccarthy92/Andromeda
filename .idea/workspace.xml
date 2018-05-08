@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f2bd7db-577c-4430-9ec6-c93f0a14de32" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/registration_system/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration_system/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,8 +53,8 @@
             <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/registration_system/views.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="18275">
-                    <caret line="2149" column="20" selection-start-line="2149" selection-start-column="20" selection-end-line="2149" selection-end-column="20" />
+                  <state relative-caret-position="325">
+                    <caret line="868" column="28" lean-forward="true" selection-start-line="868" selection-start-column="28" selection-end-line="868" selection-end-column="28" />
                     <folding>
                       <element signature="e#0#20#0" expanded="true" />
                     </folding>
@@ -109,8 +108,8 @@
       <file leaf-file-name="user_display.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/registration_system/templates/registration_system/user_display.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+            <state relative-caret-position="449">
+              <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -1018,15 +1017,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/registration_system/templates/registration_system/user_display.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        <state relative-caret-position="449">
+          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/registration_system/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18275">
-          <caret line="2149" column="20" selection-start-line="2149" selection-start-column="20" selection-end-line="2149" selection-end-column="20" />
+        <state relative-caret-position="325">
+          <caret line="868" column="28" lean-forward="true" selection-start-line="868" selection-start-column="28" selection-end-line="868" selection-end-column="28" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
