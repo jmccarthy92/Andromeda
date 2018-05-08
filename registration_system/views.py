@@ -2141,8 +2141,10 @@ class UpdateUser(LoginRequiredMixin, generic.View):
             # user = User.objects.filter(Q(username=username) | Q(email=email) | Q(first_name=first_name) |
             #                            Q(last_name=last_name))
             if first_name and last_name:
-                user = User.objects.filter(first_name=first_name, last_name=last_name)
-            if username:
+                print('here')
+                # user = User.objects.filter(first_name=first_name, last_name=last_name)
+                user = User.objects.filter(Q(first_name=first_name) & Q(last_name=last_name))
+            elif username:
                 user = User.objects.filter(username=username)
             elif email:
                 user = User.objects.filter(email=email)
