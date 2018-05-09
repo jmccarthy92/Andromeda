@@ -869,7 +869,8 @@ class ViewStudentTranscript(LoginRequiredMixin, generic.View):
                 user = False
         else:
             user = False
-
+        if not user:
+            return redirect('/student_system/view_student_transcript/')
         userprofile = UserProfile.objects.get(user=user)
         if userprofile.has_student():
             student = userprofile.student
@@ -1350,7 +1351,7 @@ class ChangeSemesterStatus(LoginRequiredMixin, generic.View):
                          'registration_system', 'js', 'nav-holder.jsx'),
             {
                 'is_admin': self.is_admin,
-                'header_text': 'Create Advising'
+                'header_text': 'Change Semester'
             },
             to_static_markup=False,
         )
