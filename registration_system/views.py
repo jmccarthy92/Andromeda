@@ -10,7 +10,7 @@ from django.views import generic
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from django.db.models import Q
+from django.db.models import Q, Count
 from .models import *
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from .forms import *
@@ -916,7 +916,8 @@ class StudentViewStudentTranscript(LoginRequiredMixin, generic.View):
                 'adviser_name': a.faculty_id.faculty_id.user.first_name + ' ' + a.faculty_id.faculty_id.user.last_name
             })
 
-        enrollments = Enrollment.objects.filter(student_id=userprofile.student)
+        orders = ['section_id__semester_id__year', 'section_id__semester_id__season']
+        enrollments = Enrollment.objects.filter(student_id=userprofile.student).order_by(*orders)
         enrollments_array = []
         grades = 0.0
         counter = 0
@@ -2528,6 +2529,53 @@ def get_attendance_csv_report(request):
         writer.writerow([key, value['tally']])
 
     return response
+
+
+# GPA AVG, Most taken class, students enrolled in courses, students total, building with most classes, busiest time slot
+def get_statistical_analysis(request):
+    grading_key = {
+        'A': 4.0,
+        'A-': 3.5,
+        'B': 3.0,
+        'B-': 2.5,
+        'C': 2.0,
+        'C-': 1.5,
+        'D': 1.0,
+        'D-': 0.5,
+        'F': 0
+    }
+    enrollments = Enrollment.objects.exclude(grade='NA')
+    enrollments_grade_counter = 0
+    enrollments_grade_sum = 0
+    for e in enrollments:
+        enrollments_grade_counter = enrollments_grade_counter + 1
+        enrollments_grade_sum = enrollments_grade_sum + grading_key[e.grade]
+
+    total_students_enrolled_in_courses = Enrollment.objects.distinct('student_id_id').count()
+    total_students_registered = Student.objects.count()
+
+    average_gpa = float(enrollments_grade_sum) / float(enrollments_grade_counter)
+
+    # Enrollment.objects.filter(section_id__course_id__name=)
+    most_taken_class_rec = Enrollment.objects.annotate(c=Count('section_id__course_id__name')).order_by('-c')[0]
+    most_taken_class = most_taken_class_rec.section_id.course_id.name
+    most_taken_class_tally = most_taken_class_rec.c
+    print(most_taken_class_rec)
+
+    building_most_classes_rec = Section.objects.annotate(c=Count('room_id__building_id_id')).order_by('-c')[0]
+    building_most_classes = building_most_classes_rec.room_id.building_id.name
+    building_most_classes_tally = building_most_classes_rec.c
+    print(building_most_classes_rec)
+    data = {
+        'AVG_GPA': average_gpa,
+        'MOST_TAKEN_CLASS_NAME': most_taken_class,
+        'MOST_TAKEN_CLASS_TALLY': most_taken_class_tally,
+        'TOTAL_ENROLLED': total_students_enrolled_in_courses,
+        'TOTAL_REGISTERED': total_students_registered,
+        'BUILDING_MOST_CLASS_NAME': building_most_classes,
+        'BUILDING_MOST_CLASS_TALLY': building_most_classes_tally
+    }
+    return HttpResponse(json.dumps(data), content_type="application/json")
 
 
 def get_departments(request):
