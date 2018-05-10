@@ -2557,15 +2557,31 @@ def get_statistical_analysis(request):
     average_gpa = float(enrollments_grade_sum) / float(enrollments_grade_counter)
 
     # Enrollment.objects.filter(section_id__course_id__name=)
-    most_taken_class_rec = Enrollment.objects.annotate(c=Count('section_id__course_id__name')).order_by('-c')[0]
-    most_taken_class = most_taken_class_rec.section_id.course_id.name
+    # most_taken_class_rec = Enrollment.objects.annotate(c=Count('section_id__course_id__name')).order_by('-c')[0]
+    # most_taken_class_rec = Enrollment.objects.raw("SELECT count(registration_system_course.name) as c ,registration_system_course.name as enrollment_id "
+    #                                               "FROM registration_system_enrollment "
+    #                                               "INNER JOIN registration_system_section on registration_system_enrollment.section_id_id = registration_system_section.section_id "
+    #                                               "INNER JOIN registration_system_course on registration_system_course.course_id = registration_system_section.course_id_id "
+    #                                               "GROUP BY registration_system_course.name, registration_system_course.course_id "
+    #                                               "ORDER BY c DESC;")[0]
+    most_taken_class_rec = Enrollment.objects.raw(
+        "SELECT SUM(s.seats_taken) as c, cs.name as enrollment_id "
+        "FROM registration_system_enrollment as e "
+        "INNER JOIN registration_system_section as s on e.section_id_id = s.section_id "
+        "INNER JOIN registration_system_course as cs on cs.course_id = s.course_id_id "
+        "GROUP BY cs.name ORDER BY SUM(s.seats_taken) desc")[0]
+    most_taken_class = most_taken_class_rec.enrollment_id
     most_taken_class_tally = most_taken_class_rec.c
-    print(most_taken_class_rec)
-
-    building_most_classes_rec = Section.objects.annotate(c=Count('room_id__building_id_id')).order_by('-c')[0]
-    building_most_classes = building_most_classes_rec.room_id.building_id.name
+    # print(most_taken_class_rec)
+    # building_most_classes_rec = Section.objects.annotate(c=Count('room_id__building_id_id')).order_by('-c')[0]
+    building_most_classes_rec = Section.objects.raw("SELECT count(b.building_id) as c, b.name as section_id "
+                                                    "FROM registration_system_building as b "
+                                                    "INNER JOIN registration_system_room as r on b.building_id = r.building_id_id "
+                                                    "INNER JOIN registration_system_section as s on r.room_id = s.room_id_id "
+                                                    "GROUP BY b.name ORDER BY count(b.building_id) desc")[0]
+    building_most_classes = building_most_classes_rec.section_id
     building_most_classes_tally = building_most_classes_rec.c
-    print(building_most_classes_rec)
+    # print(building_most_classes_rec)
     data = {
         'AVG_GPA': average_gpa,
         'MOST_TAKEN_CLASS_NAME': most_taken_class,
