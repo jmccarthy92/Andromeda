@@ -2554,7 +2554,7 @@ def get_statistical_analysis(request):
     total_students_enrolled_in_courses = Enrollment.objects.distinct('student_id_id').count()
     total_students_registered = Student.objects.count()
 
-    average_gpa = float(enrollments_grade_sum) / float(enrollments_grade_counter)
+    average_gpa = round(float(enrollments_grade_sum) / float(enrollments_grade_counter), 2)
 
     # Enrollment.objects.filter(section_id__course_id__name=)
     # most_taken_class_rec = Enrollment.objects.annotate(c=Count('section_id__course_id__name')).order_by('-c')[0]
