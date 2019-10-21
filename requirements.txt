@@ -30,5 +30,5 @@ s3transfer==0.1.12
 six==1.11.0
 social-auth-app-django==2.1.0
 social-auth-core==1.7.0
-urllib3==1.22
+urllib3==1.24.2
 wincertstore==0.2
